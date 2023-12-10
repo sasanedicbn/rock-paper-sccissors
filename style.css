@@ -1,7 +1,8 @@
 :root{
---primary-light:  rgb(146, 143, 143);
---primary-orange: rgb(231, 56, 56);
---header: rgb(56, 55, 55);
+--primary-light:  rgb(124, 110, 110);
+--primary-red: rgb(231, 56, 56);
+--header: rgb(64, 63, 63);
+--primary-hover-btn: rgb(194, 32, 32);;
 }
 *{
   margin:0;
@@ -10,6 +11,7 @@
 }
 body{
 background-color: var(--primary-light);
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 /* HEADER*/
 header{
@@ -21,8 +23,61 @@ header{
 }
 .title{
   font-size: 36px;
-  color: var(--primary-orange);
+  color: var(--primary-red);
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   letter-spacing: 2px;
 
+}
+/* MAIN */
+
+.scoreboard-header{
+  display: flex;
+  justify-content: space-around;
+  padding: 34px 0;
+}
+.score-container{
+  display: flex;
+  justify-content: center;
+  padding: 35px 0;
+}
+.score-box{
+  margin: 0 60px;
+  text-align: center;
+}
+.questionnaire{
+  font-size: 64px;
+  margin: 16px;
+}
+.score{
+  font-size: 18px;
+  font-weight: 500;
+}
+.buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 50px 0;
+}
+.btn{
+  width: 144px;
+  height: 134px;
+  cursor: pointer;
+  margin: 0 20px;
+  background-color: var(--primary-red);
+  border: none;
+  border-radius: 10px;
+}
+.btn:hover{
+  background-color: var(--primary-hover-btn)
+}
+.sign{
+font-size: 82px;
+padding: 10px;
+}
+.scoreboard-title{
+  font-size: 26px;
+  font-weight: 500;
+}
+.play{
+  font-size: 20px;
 }
