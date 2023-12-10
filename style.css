@@ -2,7 +2,8 @@
 --primary-light:  rgb(124, 110, 110);
 --primary-red: rgb(231, 56, 56);
 --header: rgb(64, 63, 63);
---primary-hover-btn: rgb(194, 32, 32);;
+--primary-hover-btn: rgb(194, 32, 32);
+--logo-color: black;
 }
 *{
   margin:0;
@@ -68,7 +69,8 @@ header{
   border-radius: 10px;
 }
 .btn:hover{
-  background-color: var(--primary-hover-btn)
+  background-color: var(--primary-hover-btn);
+  transition: all 0.4s;
 }
 .sign{
 font-size: 82px;
@@ -80,4 +82,21 @@ padding: 10px;
 }
 .play{
   font-size: 20px;
+}
+/* FOOTER */
+.footer-description{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 18px;
+  margin-right: 15px;
+}
+.icon{
+  font-size: 26px;
+  color: var(--logo-color);
+  margin: 4px;
+}
+.icon:hover{
+  transform: scale(1.2);
+  transition: all 0.3s;
 }
