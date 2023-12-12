@@ -87,3 +87,9 @@ buttons.forEach((btn) =>
     getWinner(playerAction, computerAction);
   })
 );
+const winnerModal = (winner) => {
+  const newElement = document.createElement("div");
+  newElement.classList.add("modalWin");
+  newElement.textContent = `This game win: ${winner}`;
+  document.body.appendChild(newElement);
+};
