@@ -73,9 +73,17 @@ buttons.forEach((btn) =>
   btn.addEventListener("click", (event) => {
     //use emoji from html
     const playerEmoji = event.target.textContent;
+    //use dataset to catch data-action from html
+    const playerAction = event.target.dataset.action;
+    //display Emoji
+    displayPlayerBtn.textContent = `${playerEmoji}`;
 
     //call function and get random (paper,scissors,rock)
     const computerAction = RandomComputerChoice();
+    console.log(computerAction);
     //display emoji from emojiMap[random]
+    displayComputerBtn.textContent = `${emojiMap[computerAction]}`;
+    //call winner function
+    getWinner(playerAction, computerAction);
   })
 );
