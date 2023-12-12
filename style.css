@@ -102,6 +102,7 @@ padding: 10px;
 }
 /* MODAL */
 .container-modal{
+ 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -145,7 +146,7 @@ padding: 10px;
   
 }
 .overlay{
-  position: fixed;
+  position:absolute;
   display: flex;
   align-items: center;
   justify-content: center;
