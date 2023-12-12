@@ -63,3 +63,19 @@ function RandomComputerChoice() {
   console.log(randomChoice);
   return randomChoice;
 }
+const emojiMap = {
+  rock: "✊",
+  paper: "✋",
+  scissors: "✌",
+};
+
+buttons.forEach((btn) =>
+  btn.addEventListener("click", (event) => {
+    //use emoji from html
+    const playerEmoji = event.target.textContent;
+
+    //call function and get random (paper,scissors,rock)
+    const computerAction = RandomComputerChoice();
+    //display emoji from emojiMap[random]
+  })
+);
