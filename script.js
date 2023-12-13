@@ -24,7 +24,6 @@ const containerHeading = document.querySelector(".container-heading");
 function initGame() {
   let playerScore = 0;
   let computerScore = 0;
-  let winner;
 
   const getPlayerScore = () => playerScore;
   const getComputerScore = () => computerScore;
