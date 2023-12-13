@@ -101,7 +101,19 @@ padding: 10px;
   transition: all 0.3s;
 }
 /* MODAL */
-
+.container-modal{
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: red;
+  transform: translate(-50%, -50%);
+  width: 25%;
+  height: 25%;
+  z-index: 5;
+}
 .container-heading{
   display: inline;
 }
