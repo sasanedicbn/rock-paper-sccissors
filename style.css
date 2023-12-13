@@ -102,10 +102,10 @@ padding: 10px;
 }
 /* MODAL */
 .container-modal{
- 
-  display: flex;
+  position: relative;
+  /* display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
   width: 100%;
   height: 100%;
 }
@@ -146,7 +146,7 @@ padding: 10px;
   
 }
 .overlay{
-  position:absolute;
+  /* position:absolute; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -157,13 +157,25 @@ padding: 10px;
   z-index: 0;
 }
 .modalWin{
-  position:absolute;
-  display: flex;
+  position: absolute;
+  display: flex; 
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 75%;
+  height: 75%; 
   background-color: var(--overlay-color);
-  backdrop-filter: blur(10px);
-  z-index: 1;
+  backdrop-filter: blur(8px);
+  z-index: 2;
+}
+.btn-playAgain{
+  width: 160px;
+  height: 80px;
+  font-size: 22px;
+  cursor: pointer;
+  margin: 0 20px;
+  background-color: var(--primary-red);
+  border-radius: 10px;
 }

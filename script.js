@@ -1,9 +1,9 @@
-// const modalBtn = document.querySelector(".btn-start");
-// const overlay = document.querySelector(".overlay");
-// modalBtn.addEventListener("click", () => {
-//   modalBtn.style.display = "none";
-//   overlay.style.display = "none";
-// });
+const modalBtn = document.querySelector(".btn-start");
+const overlay = document.querySelector(".overlay");
+modalBtn.addEventListener("click", () => {
+  modalBtn.style.display = "none";
+  overlay.style.display = "none";
+});
 const heading = document.querySelector(".scoreboard-title");
 const winner = document.querySelector(".player");
 const displayPlayerBtn = document.querySelector(".questionnaire-player");
@@ -11,7 +11,8 @@ const displayComputerBtn = document.querySelector(".questionnaire-computer");
 const displayPlayerPoint = document.querySelector(".player-score");
 const displayComputerPoint = document.querySelector(".computer-score");
 const buttons = document.querySelectorAll(".btn");
-console.log(winner);
+const btnPlayAgain = document.querySelector(".btn-playAgain");
+const btnPlayAgainOverlay = document.querySelector(".modalWin");
 // LOGIC FOR GAME
 function initGame() {
   let playerScore = 0;
@@ -44,11 +45,19 @@ function getWinner(Player, Computer) {
     (Player === "paper" && Computer === "rock")
   ) {
     displayPlayerPoint.textContent = game.IncrementPlayerScore();
+    if (displayPlayerPoint.textContent >= 3) {
+      winnerModal("Player");
+      console.log("PLAYER WIN");
+    }
     heading.textContent = "Point for Player";
   } else if (Player === Computer) {
     heading.textContent = "TIED";
   } else {
     displayComputerPoint.textContent = game.IncrementComputerScore();
+    if (displayComputerPoint.textContent >= 3) {
+      winnerModal("Computer");
+      console.log("COMP WIN");
+    }
     heading.textContent = "Point for Computer";
   }
 }
@@ -84,6 +93,7 @@ buttons.forEach((btn) =>
     //display emoji from emojiMap[random]
     displayComputerBtn.textContent = `${emojiMap[computerAction]}`;
     //call winner function
+    console.log();
     getWinner(playerAction, computerAction);
   })
 );
@@ -93,3 +103,8 @@ const winnerModal = (winner) => {
   newElement.textContent = `This game win: ${winner}`;
   document.body.appendChild(newElement);
 };
+
+btnPlayAgain.addEventListener("click", () => {
+  btnPlayAgain.style.display = "none";
+  btnPlayAgainOverlay.style.display = "none";
+});
