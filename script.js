@@ -6,7 +6,8 @@ modalBtn.addEventListener("click", () => {
   containerModal.style.display = "none";
 });
 function showWinner(winner) {
-  overlay.style.display = "block";
+  UX.updateStyleContent(overlay, { display: "block" });
+  UX.updateStyleContent(containerModal, { display: "flex" });
 
   // containerHeading.textContent = `This game win ${winner}!`;
   UX.updateTextContent(containerHeading, `This game win ${winner}!`);
@@ -20,15 +21,19 @@ const displayComputerBtn = document.querySelector(".questionnaire-computer");
 const displayPlayerPoint = document.querySelector(".player-score");
 const displayComputerPoint = document.querySelector(".computer-score");
 const buttons = document.querySelectorAll(".btn");
-const btnCloseModal = document.querySelector(".modalWin");
+// const btnCloseModal = document.querySelector(".modalWin");
 const containerHeading = document.querySelector(".container-heading");
 //FUNCTION FOR UPDATE UX
 function updateDomCreator() {
   const updateTextContent = (element, text) => {
     element.textContent = `${text}`;
   };
+  const updateStyleContent = (element, style) => {
+    element.style = `${style}`;
+  };
   return {
     updateTextContent,
+    updateStyleContent,
   };
 }
 // LOGIC FOR GAME
@@ -45,6 +50,9 @@ function initGame() {
   const ResetScore = () => {
     playerScore = 0;
     computerScore = 0;
+    UX.updateTextContent(displayComputerPoint, "0");
+    UX.updateTextContent(displayPlayerPoint, "0");
+    UX.updateTextContent(heading, "First who reaches 3, wins this game!");
   };
 
   const setWinner = (winner) => {
@@ -111,14 +119,14 @@ buttons.forEach((btn) =>
     //use dataset to catch data-action from html
     const playerAction = event.target.dataset.action;
     //display Emoji
-    //======================================================== displayPlayerBtn.textContent = `${playerEmoji}`;
+    // displayPlayerBtn.textContent = `${playerEmoji}`;
     UX.updateTextContent(displayPlayerBtn, `${playerEmoji}`);
 
     //call function and get random (paper,scissors,rock)
     const computerAction = RandomComputerChoice();
     console.log(computerAction);
     //display emoji from emojiMap[random]
-    // =========================================================== displayComputerBtn.textContent = `${emojiMap[computerAction]}`;
+    //  displayComputerBtn.textContent = `${emojiMap[computerAction]}`;
     UX.updateTextContent(displayComputerBtn, `${emojiMap[computerAction]}`);
     //call winner function
     getWinner(playerAction, computerAction);
