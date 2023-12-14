@@ -8,10 +8,7 @@ modalBtn.addEventListener("click", () => {
 function showWinner(winner) {
   UX.updateStyleContent(overlay, { display: "block" });
   UX.updateStyleContent(containerModal, { display: "flex" });
-
-  // containerHeading.textContent = `This game win ${winner}!`;
   UX.updateTextContent(containerHeading, `This game win ${winner}!`);
-  // modalBtn.textContent = "Play Again";
   UX.updateTextContent(modalBtn, "Play Again");
 }
 const heading = document.querySelector(".scoreboard-title");
@@ -21,7 +18,6 @@ const displayComputerBtn = document.querySelector(".questionnaire-computer");
 const displayPlayerPoint = document.querySelector(".player-score");
 const displayComputerPoint = document.querySelector(".computer-score");
 const buttons = document.querySelectorAll(".btn");
-// const btnCloseModal = document.querySelector(".modalWin");
 const containerHeading = document.querySelector(".container-heading");
 //FUNCTION FOR UPDATE UX
 function updateDomCreator() {
@@ -81,23 +77,17 @@ function getWinner(Player, Computer) {
     if (game.getPlayerScore() >= 3) {
       showWinner("Player");
     }
-    // heading.textContent = "Point for Player";
     UX.updateTextContent(heading, "Point for Player");
   } else if (Player === Computer) {
-    // heading.textContent = "TIED";
     UX.updateTextContent(heading, "TIED");
   } else {
     displayComputerPoint.textContent = game.IncrementComputerScore();
     if (game.getComputerScore() >= 3) {
       showWinner("Computer");
     }
-    // heading.textContent = "Point for Computer";
     UX.updateTextContent(heading, "Point for Computer");
   }
 }
-//e target
-//dataSet
-
 //GENERATE RANDOM NUMBER
 function RandomComputerChoice() {
   const choice = ["rock", "paper", "scissors"];
