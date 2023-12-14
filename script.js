@@ -7,9 +7,11 @@ modalBtn.addEventListener("click", () => {
 });
 function showWinner(winner) {
   overlay.style.display = "block";
-  containerModal.style.display = "";
-  containerHeading.textContent = `${winner}!`;
-  modalBtn.textContent = "Play Again";
+
+  // containerHeading.textContent = `This game win ${winner}!`;
+  UX.updateTextContent(containerHeading, `This game win ${winner}!`);
+  // modalBtn.textContent = "Play Again";
+  UX.updateTextContent(modalBtn, "Play Again");
 }
 const heading = document.querySelector(".scoreboard-title");
 const winner = document.querySelector(".player");
@@ -20,6 +22,15 @@ const displayComputerPoint = document.querySelector(".computer-score");
 const buttons = document.querySelectorAll(".btn");
 const btnCloseModal = document.querySelector(".modalWin");
 const containerHeading = document.querySelector(".container-heading");
+//FUNCTION FOR UPDATE UX
+function updateDomCreator() {
+  const updateTextContent = (element, text) => {
+    element.textContent = `${text}`;
+  };
+  return {
+    updateTextContent,
+  };
+}
 // LOGIC FOR GAME
 function initGame() {
   let playerScore = 0;
@@ -49,6 +60,7 @@ function initGame() {
   };
 }
 const game = initGame();
+const UX = updateDomCreator();
 
 function getWinner(Player, Computer) {
   modalBtn.addEventListener("click", game.ResetScore);
@@ -61,15 +73,18 @@ function getWinner(Player, Computer) {
     if (game.getPlayerScore() >= 3) {
       showWinner("Player");
     }
-    heading.textContent = "Point for Player";
+    // heading.textContent = "Point for Player";
+    UX.updateTextContent(heading, "Point for Player");
   } else if (Player === Computer) {
-    heading.textContent = "TIED";
+    // heading.textContent = "TIED";
+    UX.updateTextContent(heading, "TIED");
   } else {
     displayComputerPoint.textContent = game.IncrementComputerScore();
     if (game.getComputerScore() >= 3) {
       showWinner("Computer");
     }
-    heading.textContent = "Point for Computer";
+    // heading.textContent = "Point for Computer";
+    UX.updateTextContent(heading, "Point for Computer");
   }
 }
 //e target
@@ -96,15 +111,16 @@ buttons.forEach((btn) =>
     //use dataset to catch data-action from html
     const playerAction = event.target.dataset.action;
     //display Emoji
-    displayPlayerBtn.textContent = `${playerEmoji}`;
+    //======================================================== displayPlayerBtn.textContent = `${playerEmoji}`;
+    UX.updateTextContent(displayPlayerBtn, `${playerEmoji}`);
 
     //call function and get random (paper,scissors,rock)
     const computerAction = RandomComputerChoice();
     console.log(computerAction);
     //display emoji from emojiMap[random]
-    displayComputerBtn.textContent = `${emojiMap[computerAction]}`;
+    // =========================================================== displayComputerBtn.textContent = `${emojiMap[computerAction]}`;
+    UX.updateTextContent(displayComputerBtn, `${emojiMap[computerAction]}`);
     //call winner function
-    console.log();
     getWinner(playerAction, computerAction);
   })
 );
