@@ -103,19 +103,22 @@ padding: 10px;
 /* MODAL */
 .container-modal{
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
   position: absolute;
   left: 50%;
   top: 50%;
-  background-color: red;
+  background-color: var(--primary-red);
   transform: translate(-50%, -50%);
-  width: 25%;
-  height: 25%;
+  width: 30%;
+  height: 30%;
   z-index: 5;
+  padding: 15px;
 }
 .container-heading{
   display: inline;
+  margin-bottom: 22px;
 }
 /* ANIMATION FOR START BUTTON */
 @keyframes pulseButton {

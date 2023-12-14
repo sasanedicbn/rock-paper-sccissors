@@ -7,7 +7,7 @@ modalBtn.addEventListener("click", () => {
 });
 function showWinner(winner) {
   overlay.style.display = "block";
-  containerModal.style.display = "block";
+  containerModal.style.display = "";
   containerHeading.textContent = `${winner}!`;
   modalBtn.textContent = "Play Again";
 }
